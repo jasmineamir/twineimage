@@ -1,0 +1,27 @@
+//COPY & PASTE THE CODE BELOW FOR TRANSITIONING TEXT! :-)
+//change the # of seconds next to "live" to increase or decrease transition time between lines.
+//eg: live: 2s means every line appears after 2 seconds
+
+(set: $transCounter to 0)\
+
+|sample1)[(transition: "dissolve")[TEXT HERE]]
+|sample2)[(transition: "dissolve")[TEXT HERE]]
+|sample3)[(transition: "dissolve")[TEXT HERE]]
+{
+	(live: 2s)[
+		(set: $transCounter to it + 1)
+
+		(if: $transCounter is 1)[
+			(show: ?sample1)
+		]
+		(else-if: $transCounter is 2)[
+			(show: ?sample2)
+		]
+		(else-if: $transCounter is 3)[
+			(show: ?sample3)
+		]
+		(else:)[
+			(stop:)
+		]
+	]
+}
